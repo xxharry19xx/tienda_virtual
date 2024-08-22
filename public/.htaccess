@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Front controller
+# si lo que se pide en la url es un archivo y si este existe, mostrarlo
+RewriteCond %{REQUEST_FILENAME} !-f 
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Todas las peticiones que sean enviadas al archivo public/index.php
+RewriteRule ^ index.php [L]

@@ -1,0 +1,21 @@
+{
+    "name": "silva/tiendavirtual",
+    "description": "proyecto de tienda virtual",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "xxharry19xx",
+            "email": "hssilvavasquez@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/http-foundation": "^6.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Src\\": "src/"
+        }
+    }
+}
