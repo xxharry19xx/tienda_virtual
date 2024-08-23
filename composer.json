@@ -11,7 +11,8 @@
     ],
     "require": {
         "symfony/http-foundation": "^6.4",
-        "illuminate/database": "^10.48"
+        "illuminate/database": "^10.48",
+        "illuminate/events": "^10.48"
     },
     "autoload": {
         "psr-4": {
