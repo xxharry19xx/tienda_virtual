@@ -3,6 +3,8 @@
 namespace Src\Database;
 
 use Illuminate\Database\Capsule\Manager;
+use Illuminate\Events\Dispatcher;
+use Illuminate\Container\Container;
 
 class ORM{
     public static function init(){
@@ -22,5 +24,13 @@ class ORM{
             'prefix' => ''
 
         ]);
+
+        $manager->setEventDispatcher(new Dispatcher(new Container));
+
+        // Make this Capsule instance available globally via static methods... (optional)
+        $manager->setAsGlobal();
+
+        // Setup the Eloquent ORM... (optional; unless you've used setEventDispatcher())
+        $manager->bootEloquent();
     }
 }

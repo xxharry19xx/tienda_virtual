@@ -18,5 +18,17 @@ class InicioController extends Controller {
         $response = new Response('Productos mas modernos que puedas encontrar', 200);
         return $response;
     }
+
+    public function principal()
+    {
+        $view = new View();
+        return $view->render('principal');
+    }
+
+    public function pedidos()
+    {
+        $view = new View();
+        return $view->render('pedidos');
+    }
     
 }

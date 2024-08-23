@@ -2,6 +2,7 @@
 
 namespace Src\Foundation;
 
+use Src\Database\ORM;
 use Src\Routing\Router;
 
 class Application{
@@ -15,6 +16,7 @@ class Application{
         self::$folderViews = $root_dir . "/views";
         
         $this->router = new Router();
+        ORM::init();//TODO: CONEXION A LA BASE DE DATOS
     }
 
 
