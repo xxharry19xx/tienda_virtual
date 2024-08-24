@@ -34,6 +34,7 @@ class Router{
         // comparar 
         $rutas = $this->routes[$metodo_http];
         $action = false;
+        $parametros = [];
 
         foreach ($rutas as $ruta){
             if($ruta["url"] == $url){
@@ -65,6 +66,7 @@ class Router{
         $metodo_controlador = $action[1];
         $objeto_controlador = new $controlador();
         
-        return call_user_func_array([$objeto_controlador, $metodo_controlador], []);
+        $parametros[] = $request;
+        return call_user_func_array([$objeto_controlador, $metodo_controlador], $parametros);
     }
 }

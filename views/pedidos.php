@@ -19,10 +19,10 @@ $this->startSection('contenido');
 $this->endSection('contenido');
 ?>
 
-<!-- <?php 
+<?php 
 $this->startSection('titulo');
 ?>
 Listado de pedidos
 <?php 
 $this->endSection('titulo');
-?> -->
+?>

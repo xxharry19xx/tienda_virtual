@@ -3,6 +3,7 @@
 namespace App\Controllers\Admin;
 
 use App\Models\Usuario;
+use Src\Http\Request;
 use Src\Http\Response;
 use Src\Routing\Controller;
 use Src\View\View;
@@ -15,14 +16,22 @@ class UsuarioController extends Controller{
         return $view->render('admin/usuarios/index');
     }
 
-    public function search(){
+    public function search(Request $request){
+
+        $busqueda = $request->get('busqueda');
+        $listado = Usuario::where('nombre_completo', 'LIKE', '%' . $busqueda . '%')->get();
         $view = new View();
-        return $view->render('admin/usuarios/search');
+        return $view->render('admin/usuarios/search',[
+            'usuarios' => $listado,
+        ]);
     }
 
     public function create(){
 
-        try{
+        $view = new View();
+        return $view->render('admin/usuarios/create');
+
+/*         try{
              // crear un registro
             $usuario = new Usuario();
             $usuario->nombre_completo = 'harry silva';
@@ -37,9 +46,9 @@ class UsuarioController extends Controller{
             $response = new Response();
             $response->setContent("Error al registrar usuario:" . $error->getMessage());
             return $response;
-        }
+        } */
 
        
     }
 
-}
+}   

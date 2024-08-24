@@ -14,9 +14,9 @@ class View{
         $this->layout = $layout;
     }
 
-    public function render($viewFile, $statusCode = 200){
+    public function render($viewFile, array $parametros = [], $statusCode = 200){
 
-        $contenido = $this->getContentView($viewFile);
+        $contenido = $this->getContentView($viewFile, $parametros);
 
         if($this->layout != ''){
             $contenido = $this->getContentLayout();
@@ -28,11 +28,12 @@ class View{
         return $response;
     }
     
-    private function getContentView($viewFile){
+    private function getContentView($viewFile, $parametros){
 
         // obtener el contenido de un archivo de vista 
         $folderView = Application::$folderViews;
         $ruta = $folderView . "/" . $viewFile . ".php";
+        extract($parametros);
         ob_start();
         require $ruta;
         return ob_get_clean();
